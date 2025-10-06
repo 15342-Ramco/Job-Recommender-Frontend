@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Shathik AI Job Recommender — Create Profile</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Shathik AI-Powered Job Recommender</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for msg in messages %}<li>{{ msg }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form action="/recommend" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" placeholder="Your name">
+
+        <label for="skills">Skills (comma separated)</label>
+        <input id="skills" name="skills" placeholder="e.g. python, flask, docker">
+
+        <button type="submit">Get Recommendations</button>
+      </form>
+
+      <footer>
+        <p>Service architecture: Flask (frontend) → FastAPI (recommender)</p>
+      </footer>
+    </div>
+  </body>
+</html>

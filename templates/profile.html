@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Recommendations for {{ profile.user.name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recommendations for {{ profile.user.name }}</h1>
+      {% if profile.recommendations %}
+        <ul class="jobs">
+          {% for job in profile.recommendations %}
+            <li>
+              <h3>{{ job.title }} <small>(score: {{ job.score }})</small></h3>
+              <p>{{ job.description }}</p>
+              <p><strong>Skills:</strong> {{ job.skills | join(', ') }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No matching jobs found. Try different skills.</p>
+      {% endif %}
+
+      <a href="/">Back</a>
+    </div>
+  </body>
+</html>
