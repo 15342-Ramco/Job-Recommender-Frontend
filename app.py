@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET', 'devsecret')
-RECOMMENDER_URL = os.environ.get('RECOMMENDER_URL', 'https://job-recommender-fastapi-flask.onrender.com')
+RECOMMENDER_URL = os.environ.get('RECOMMENDER_URL', 'https://job-recommender-backend-6i2a.onrender.com')
 
 @app.route('/')
 def index():
